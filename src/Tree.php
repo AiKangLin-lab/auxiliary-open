@@ -9,12 +9,8 @@
 // +----------------------------------------------------------------------
 // | Year:      2024
 // +----------------------------------------------------------------------
-namespace Collin\AuxiliaryOpen;
+namespace Collinai\AuxiliaryOpen;
 
-/**
- * Class Tree
- * @package Collin\AuxiliaryOpen
- */
 class Tree
 {
 

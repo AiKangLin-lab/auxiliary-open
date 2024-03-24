@@ -1,18 +1,17 @@
 {
-    "name": "collin/auxiliary-open",
-    "description": "This Is Auxiliary PHP Open",
+    "name": "collinai/auxiliary-open",
     "type": "1",
     "require": {
         "php": ">=7.4"
     },
     "autoload": {
         "psr-4": {
-            "Collin\\AuxiliaryOpen\\": "src/"
+            "Collinai\\AuxiliaryOpen\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "collinAi"
+            "name": "collinai"
         }
     ]
 }

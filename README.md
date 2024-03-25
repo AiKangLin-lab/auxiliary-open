@@ -1,4 +1,4 @@
-```markdown
+
 # Auxiliary-Open by CollinAI
 
 `auxiliary-open` is a versatile toolkit designed to ease the PHP development process, offering a range of essential helper functions that boost productivity and streamline workflows.

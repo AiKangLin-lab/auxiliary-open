@@ -11,15 +11,43 @@
 // +----------------------------------------------------------------------
 namespace Collinai\AuxiliaryOpen;
 
+/**
+ * 树形数据处理类
+ *
+ * Class Tree
+ * @package Collinai\AuxiliaryOpen
+ */
 class Tree
 {
-
+    /**
+     * @var array 储存树形数据
+     */
     public array $data = [];
+
+    /**
+     * @var string 父节点的字段名
+     */
     public string $pidName = 'parent_id';
+
+    /**
+     * @var string 节点的主键字段名
+     */
     public string $pkName = 'id';
+
+    /**
+     * @var string 子节点的键名
+     */
     public string $children = 'children';
 
-    public function init (array $data = [], string $pidName = '', string $pkName = '')
+    /**
+     * 初始化树形数据和配置。
+     *
+     * @param array $data 初始数据数组
+     * @param string $pidName 父节点字段名
+     * @param string $pkName 主键字段名
+     * @return self 返回自身实例以支持链式调用
+     */
+    public function init (array $data = [], string $pidName = '', string $pkName = ''): self
     {
         $this->data = $data;
         if (!empty($pidName)) {
@@ -31,8 +59,13 @@ class Tree
         return $this;
     }
 
-
-    public function getChildrenByParentId (int $parentId)
+    /**
+     * 根据父节点ID获取其直接子节点数组。
+     *
+     * @param int $parentId 父节点ID
+     * @return array 直接子节点的数组
+     */
+    public function getChildrenByParentId (int $parentId): array
     {
         $newArr = [];
         foreach ($this->data as $value) {
@@ -43,8 +76,14 @@ class Tree
         return $newArr;
     }
 
-
-    public function getChildrenIdsByParentId (int $parentId, $includeSelf = false)
+    /**
+     * 根据父节点ID递归获取所有子节点ID。
+     *
+     * @param int $parentId 父节点ID
+     * @param bool $includeSelf 是否包含自身ID
+     * @return array 子节点ID数组
+     */
+    public function getChildrenIdsByParentId (int $parentId, bool $includeSelf = false): array
     {
         $childrenIds = [];
 
@@ -62,8 +101,14 @@ class Tree
         return array_unique($childrenIds);
     }
 
-
-    public function getDescendantsById (int $id, bool $includeParent = false)
+    /**
+     * 根据节点ID递归获取所有后代节点。
+     *
+     * @param int $id 节点ID
+     * @param bool $includeParent 是否包含传入的节点ID本身在结果数组中
+     * @return array 后代节点数组
+     */
+    public function getDescendantsById (int $id, bool $includeParent = false): array
     {
         $descendants = [];
 
@@ -85,14 +130,59 @@ class Tree
         return $descendants;
     }
 
+    /**
+     * 根据节点ID获取其父节点信息。
+     *
+     * @param int $id 节点ID
+     * @return array 父节点信息数组，如果不存在则为空数组
+     */
+    public function getParentById (int $id): array
+    {
+        $map = [];
+        foreach ($this->data as $item) {
+            $map[$item[$this->pkName]] = $item;
+        }
 
+        $currentItem = $map[$id] ?? [];
+        if ($currentItem) {
+            return $map[$currentItem[$this->pidName]] ?? [];
+        }
 
-    ///     得到当前位置父辈数组
-    /// 得到当前位置所有父辈数组
-    /// 读取指定节点所有父类节点ID
+        return [];
+    }
 
+    /**
+     * 递归获取指定节点的所有父级节点的ID数组。
+     *
+     * @param int $id 当前节点的ID
+     * @return array 父级节点的ID数组
+     */
+    public function getParentIdsById (int $id): array
+    {
+        $map = array_column($this->data, null, $this->pkName);
 
-    public function buildTree (int $parentId = 0)
+        $getParentIds = function($id) use (&$getParentIds, &$map) {
+            $parentIds = [];
+            if (isset($map[$id])) {
+                $parentId = $map[$id][$this->pidName];
+                if (isset($map[$parentId])) {
+                    $parentIds = $getParentIds($parentId);
+                    $parentIds[] = $parentId;
+                }
+            }
+            return $parentIds;
+        };
+
+        return $getParentIds($id);
+    }
+
+    /**
+     * 构建树形结构数据。
+     *
+     * @param int $parentId 根节点ID，默认为0表示从最顶层开始构建
+     * @return array 树形结构数据
+     */
+    public function buildTree (int $parentId = 0): array
     {
         $tree = [];
 

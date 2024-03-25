@@ -1,17 +1,19 @@
 {
-    "name": "collinai/auxiliary-open",
-    "type": "1",
-    "require": {
-        "php": ">=7.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "Collinai\\AuxiliaryOpen\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "collinai"
-        }
-    ]
+  "name": "collinai/auxiliary-open",
+  "description": "A versatile PHP toolkit providing essential helper functions to ease development workflows and boost productivity.",
+  "type": "library",
+  "require": {
+    "php": ">=7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Collinai\\AuxiliaryOpen\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "collinai",
+      "email": "ailin1219@foxmail.com"
+    }
+  ]
 }

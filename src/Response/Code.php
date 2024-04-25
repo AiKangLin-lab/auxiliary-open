@@ -63,6 +63,19 @@ class Code
         'message' => 'The requested resource could not be found.'
     ];
 
+    /**
+     * 405 Method Not Allowed
+     * 应用场景： 请求行中指定的请求方法不能被用于请求相应的资源。
+     *
+     * @var array
+     */
+    public static array $methodNotAllowed = [
+        'code'    => 405,
+        'message' => 'The requested method is not allowed for the resource identified by the request URI.'
+    ];
+
+
+
 
     //------------------------------------------------------成功状态码---------------------------------------------------
     /**
@@ -76,6 +89,27 @@ class Code
         'message' => 'Resource retrieved successfully.'
     ];
 
+    /**
+     * 201 Created
+     * 应用场景： 请求成功并且服务器创建了新的资源。
+     *
+     * @var array
+     */
+    public static array $created = [
+        'code'    => 201,
+        'message' => 'Resource created successfully.'
+    ];
+
+    /**
+     * 204 No Content
+     * 应用场景： 服务器成功处理了请求，但不需要返回任何实体内容。适用于不返回所有资源列表的更新操作。
+     *
+     * @var array
+     */
+    public static array $noContent = [
+        'code'    => 204,
+        'message' => 'Request processed successfully, but no content is returned.'
+    ];
 
     //------------------------------------------------服务器错误状态码---------------------------------------------------
 

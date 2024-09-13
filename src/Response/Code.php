@@ -13,6 +13,7 @@ namespace Collinai\AuxiliaryOpen\Response;
 
 /**
  * Class Code
+ *
  * @package Collinai\AuxiliaryOpen\Response
  */
 class Code
@@ -26,8 +27,9 @@ class Code
      * @var array
      */
     public static array $error = [
-        'code'    => 400,
-        'message' => 'Invalid request parameters. Please check the documentation and correct the input.'
+        'code'       => 400,
+        'message'    => 'Invalid request parameters. Please check the documentation and correct the input.',
+        'zh_message' => '无效的请求参数。请检查文档并更正输入。'
     ];
 
     /**
@@ -37,8 +39,9 @@ class Code
      * @var array
      */
     public static array $unauthorized = [
-        'code'    => 401,
-        'message' => 'Unauthorized access. Please provide a valid authentication token.'
+        'code'       => 401,
+        'message'    => 'Unauthorized access. Please provide a valid authentication token.',
+        'zh_message' => '未授权'
     ];
 
     /**
@@ -48,8 +51,9 @@ class Code
      * @var array
      */
     public static array $forbidden = [
-        'code'    => 403,
-        'message' => 'Access to this resource is forbidden for your account.'
+        'code'       => 403,
+        'message'    => 'Access to this resource is forbidden for your account.',
+        'zh_message' => '禁止访问'
     ];
 
     /**
@@ -59,8 +63,9 @@ class Code
      * @var array
      */
     public static array $notFound = [
-        'code'    => 404,
-        'message' => 'The requested resource could not be found.'
+        'code'       => 404,
+        'message'    => 'The requested resource could not be found.',
+        'zh_message' => '请求路径不存在'
     ];
 
     /**
@@ -70,11 +75,10 @@ class Code
      * @var array
      */
     public static array $methodNotAllowed = [
-        'code'    => 405,
-        'message' => 'The requested method is not allowed for the resource identified by the request URI.'
+        'code'       => 405,
+        'message'    => 'The requested method is not allowed for the resource identified by the request URI.',
+        'zh_message' => '请求方法不允许'
     ];
-
-
 
 
     //------------------------------------------------------成功状态码---------------------------------------------------
@@ -85,8 +89,9 @@ class Code
      * @var array
      */
     public static array $success = [
-        'code'    => 200,
-        'message' => 'Resource retrieved successfully.'
+        'code'       => 200,
+        'message'    => 'Resource retrieved successfully.',
+        'zh_message' => '请求成功'
     ];
 
     /**
@@ -96,8 +101,9 @@ class Code
      * @var array
      */
     public static array $created = [
-        'code'    => 201,
-        'message' => 'Resource created successfully.'
+        'code'       => 201,
+        'message'    => 'Resource created successfully.',
+        'zh_message' => '创建成功'
     ];
 
     /**
@@ -107,8 +113,9 @@ class Code
      * @var array
      */
     public static array $noContent = [
-        'code'    => 204,
-        'message' => 'Request processed successfully, but no content is returned.'
+        'code'       => 204,
+        'message'    => 'Request processed successfully, but no content is returned.',
+        'zh_message' => '请求成功'
     ];
 
     //------------------------------------------------服务器错误状态码---------------------------------------------------
@@ -121,8 +128,9 @@ class Code
      * @var array
      */
     public static array $internalServerError = [
-        'code'    => 500,
-        'message' => 'An unexpected error occurred on the server. Please try again later or contact support.'
+        'code'       => 500,
+        'message'    => 'An unexpected error occurred on the server. Please try again later or contact support.',
+        'zh_message' => '服务器错误'
     ];
 
     /**
@@ -132,7 +140,8 @@ class Code
      * @var array
      */
     public static array $serviceUnavailable = [
-        'code'    => 503,
-        'message' => 'Service temporarily unavailable. Please retry after 5 minutes.'
+        'code'       => 503,
+        'message'    => 'Service temporarily unavailable. Please retry after 5 minutes.',
+        'zh_message' => '服务不可用'
     ];
 }

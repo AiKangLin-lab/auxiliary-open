@@ -28,8 +28,8 @@ class Code
      */
     public static array $error = [
         'code'       => 400,
-        'message'    => 'Invalid request parameters. Please check the documentation and correct the input.',
-        'zh_message' => '无效的请求参数。请检查文档并更正输入。'
+        'message'    => 'Invalid request parameters.',
+        'zh_message' => '无效的请求参数。'
     ];
 
     /**
@@ -40,7 +40,7 @@ class Code
      */
     public static array $unauthorized = [
         'code'       => 401,
-        'message'    => 'Unauthorized access. Please provide a valid authentication token.',
+        'message'    => 'Unauthorized access.',
         'zh_message' => '未授权'
     ];
 
@@ -52,7 +52,7 @@ class Code
      */
     public static array $forbidden = [
         'code'       => 403,
-        'message'    => 'Access to this resource is forbidden for your account.',
+        'message'    => 'Access to this resource is forbidden.',
         'zh_message' => '禁止访问'
     ];
 
@@ -76,7 +76,7 @@ class Code
      */
     public static array $methodNotAllowed = [
         'code'       => 405,
-        'message'    => 'The requested method is not allowed for the resource identified by the request URI.',
+        'message'    => 'The requested method is not allowed.',
         'zh_message' => '请求方法不允许'
     ];
 
@@ -114,7 +114,7 @@ class Code
      */
     public static array $noContent = [
         'code'       => 204,
-        'message'    => 'Request processed successfully, but no content is returned.',
+        'message'    => 'ok',
         'zh_message' => '请求成功'
     ];
 
@@ -129,7 +129,7 @@ class Code
      */
     public static array $internalServerError = [
         'code'       => 500,
-        'message'    => 'An unexpected error occurred on the server. Please try again later or contact support.',
+        'message'    => 'An unexpected error occurred on the server.',
         'zh_message' => '服务器错误'
     ];
 
@@ -141,7 +141,7 @@ class Code
      */
     public static array $serviceUnavailable = [
         'code'       => 503,
-        'message'    => 'Service temporarily unavailable. Please retry after 5 minutes.',
+        'message'    => 'Service temporarily unavailable.',
         'zh_message' => '服务不可用'
     ];
 }
